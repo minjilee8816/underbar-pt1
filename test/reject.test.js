@@ -1,21 +1,18 @@
 const _ = require('../underbar');
 
 describe('reject()', () => {
-  it('rejects odd numbers from an array', () => {
-    const nums = [2, 4, 5, 6, 7, 8, 10, 11];
-    expect(_.reject(nums, num => num % 2 === 1)).toEqual([2, 4, 6, 8, 10]);
+  it('rejects positive numbers in the array', () => {
+    const arr = [ 'hello', 3, 6, 10, -10 ];
+    expect(_.reject(arr, el => el > 0)).toEqual(['hello', -10]);
   });
 
-  it('rejects null values from an object', () => {
-    const order = {
-      entree: 'burger',
-      side: null,
-      condiment: 'ketchup',
-      drink: null,
-      dessert: 'cookie'
-    };
-
-    const orderItems = _.reject(order, (value) => value === null);
-    expect(orderItems).toEqual(['burger', 'ketchup', 'cookie']);
+  it('rejects string type of values in the object', () => {
+    const obj = {
+      name : "minji",
+      age : 27,
+      hobbies : "hiking", 
+      drink : null
+    }
+    expect(_.reject(obj, (el) => typeof el === "string")).toEqual([27, null]);
   });
 });

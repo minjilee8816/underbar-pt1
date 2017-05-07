@@ -1,14 +1,14 @@
 const _ = require('../underbar');
 
 describe('some()', () => {
-  it('returns true if any number is odd', () => {
-    const nums = [2, 4, 5, 6];
-    expect(_.some(nums, num => num % 2 === 1)).toBe(true);
+  it('returns if any number is postive number', () => {
+    const arr = [ 1, -1, -2];
+    expect(_.some(arr, el => el > 0)).toBe(true);
   });
 
-  it('returns false if no number is odd', () => {
-    const nums = [2, 4, 6, 8];
-    expect(_.some(nums, num => num % 2 === 1)).toBe(false);
+  it('returns ture if any element type is string', () => {
+    const arr = [ 'minji', 1, 3 ]; 
+    expect(_.some(arr, el => typeof el === 'string')).toBe(true);
   });
 
 });
